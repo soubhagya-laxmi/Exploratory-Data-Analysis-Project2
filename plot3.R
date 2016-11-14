@@ -1,9 +1,13 @@
+# Load ggplot2 library
 library(ggplot2)
 setwd("E:/shubbi study/R program/Corsera/Exploratory Data Analysis/week 4/case study project")
+
+# Loading provided datasets - loading from local machine
 NEI <- readRDS("summarySCC_PM25.rds")
 SCC <- readRDS("Source_Classification_Code.rds")
 head(NEI)
 
+# Baltimore City, Maryland (fips == "24510")
 subsetNEI <- subset(NEI,fips %in% "24510")
 
 Total_Emission_type <- aggregate(Emissions ~ year+type,subsetNEI,FUN = sum)
